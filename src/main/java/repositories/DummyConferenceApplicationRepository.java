@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Szymon on 2017-03-28.
  */
-public class DummyConferenceApplication implements ConferenceApplicationRepository {
+public class DummyConferenceApplicationRepository implements ConferenceApplicationRepository {
 
     private static List<ConferenceApplication> db = new ArrayList<ConferenceApplication>();
 

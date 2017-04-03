@@ -18,20 +18,15 @@ import java.io.IOException;
 public class AddApplicationServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
+
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        HttpSession session = req.getSession();
-        if(session.getAttribute("conf") !=null){
-            resp.getWriter()
-                    .println("Powtorne wypelnienie formularza zostalo zablokowane.");
-            return;
-        }
-
         ConferenceApplication application = retriveApplicationFromRequest(req);
-        ConferenceApplicationRepository repository = new DummyConferenceApplication();
+        ConferenceApplicationRepository repository = new DummyConferenceApplicationRepository();
 
-
+        HttpSession session = req.getSession();
         session.setAttribute("conf", application);
 
         repository.add(application);
